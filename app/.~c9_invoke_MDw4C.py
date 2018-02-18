@@ -37,9 +37,9 @@ def contact():
         message=request.form['message']
         
         msg = Message(subject, sender=(name,email), recipients = ["wallace.shaniel@yahoo.com"])
-        msg.body = message
+        msg = Message(subject, sender=(name,email), recipients = ['wallace.shaniel'])
         mail.send(msg)
-        flash('Message sent successfully','success')
+        flash('Message sent successfully',)
         return redirect(url_for('home'))
     return render_template('contact.html', form=form)
     
